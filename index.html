@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableau de bord – Task Manager</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E✅%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="dashboard" data-view="dashboard">
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo">✅ <span>Task Manager</span></div>
+    <nav aria-label="Navigation principale">
+      <a href="#" class="nav-link active" data-view="dashboard">🏠 <span>Tableau de bord</span></a>
+      <a href="#" class="nav-link" data-view="tasks">📋 <span>Mes tâches</span></a>
+      <a href="#" class="nav-link" data-view="done">✔️ <span>Tâches terminées</span></a>
+    </nav>
+    <button id="logout-btn" class="nav-link logout" type="button">🚪 <span>Déconnexion</span></button>
+  </aside>
+
+  <main class="content">
+    <header class="topbar">
+      <div>
+        <h1 id="greeting">Bonjour 👋</h1>
+        <p class="muted">Voici où en sont vos tâches.</p>
+      </div>
+      <button id="add-btn" class="btn btn-primary" type="button">＋ Ajouter une tâche</button>
+    </header>
+
+    <section class="stats" aria-label="Statistiques">
+      <div class="stat"><span class="stat-ico s-total">📊</span><div><strong id="stat-total">0</strong><span>Total</span></div></div>
+      <div class="stat"><span class="stat-ico s-pending">⏳</span><div><strong id="stat-pending">0</strong><span>En attente</span></div></div>
+      <div class="stat"><span class="stat-ico s-progress">🚧</span><div><strong id="stat-progress">0</strong><span>En cours</span></div></div>
+      <div class="stat"><span class="stat-ico s-done">✅</span><div><strong id="stat-done">0</strong><span>Terminées</span></div></div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2 id="list-title">Toutes les tâches</h2>
+        <div class="chips" id="chips" role="group" aria-label="Filtrer par statut">
+          <button class="chip active" type="button" data-filter="all">Toutes</button>
+          <button class="chip" type="button" data-filter="pending">En attente</button>
+          <button class="chip" type="button" data-filter="in_progress">En cours</button>
+          <button class="chip" type="button" data-filter="completed">Terminées</button>
+        </div>
+      </div>
+      <div id="task-list" class="task-list"></div>
+    </section>
+  </main>
+</div>
+
+<dialog id="task-dialog" aria-labelledby="dialog-title">
+  <form id="task-form" novalidate>
+    <h2 id="dialog-title">Nouvelle tâche</h2>
+    <div class="field">
+      <label for="task-title">Titre</label>
+      <input id="task-title" name="title" type="text" maxlength="255" placeholder="Ex. : Préparer la présentation">
+      <small class="error" data-error-for="title"></small>
+    </div>
+    <div class="field">
+      <label for="task-desc">Description <span class="muted">(facultative)</span></label>
+      <textarea id="task-desc" name="description" rows="3" placeholder="Ajoutez des détails utiles"></textarea>
+    </div>
+    <div class="field">
+      <label for="task-status">Statut</label>
+      <select id="task-status" name="status">
+        <option value="pending">En attente</option>
+        <option value="in_progress">En cours</option>
+        <option value="completed">Terminée</option>
+      </select>
+    </div>
+    <div class="dialog-actions">
+      <button class="btn btn-ghost" type="button" id="cancel-btn">Annuler</button>
+      <button class="btn btn-primary" type="submit">Enregistrer</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/tasks.js"></script>
+</body>
+</html>

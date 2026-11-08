@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connexion – Task Manager</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E✅%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page" data-page="login">
+<main class="auth-card">
+  <div class="logo">✅ <span>Task Manager</span></div>
+  <h1>Content de vous revoir</h1>
+  <p class="muted">Connectez-vous pour retrouver vos tâches.</p>
+  <form id="login-form" novalidate>
+    <div class="field">
+      <label for="email">Adresse e-mail</label>
+      <input id="email" name="email" type="email" autocomplete="email" placeholder="vous@exemple.com">
+      <small class="error" data-error-for="email"></small>
+    </div>
+    <div class="field">
+      <label for="password">Mot de passe</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Votre mot de passe">
+      <small class="error" data-error-for="password"></small>
+    </div>
+    <p class="form-error" role="alert"></p>
+    <button class="btn btn-primary btn-block" type="submit">Se connecter</button>
+  </form>
+  <p class="muted center">Pas encore de compte ? <a href="register.html">Créer un compte</a></p>
+  <p class="demo-note">Mode démonstration : données enregistrées dans ce navigateur, authentification non sécurisée.<br>Compte test : demo@taskmanager.com / demo1234</p>
+</main>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

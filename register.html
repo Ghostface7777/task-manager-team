@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inscription – Task Manager</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E✅%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page" data-page="register">
+<main class="auth-card">
+  <div class="logo">✅ <span>Task Manager</span></div>
+  <h1>Créer votre compte</h1>
+  <p class="muted">Quelques secondes suffisent pour organiser vos tâches.</p>
+  <form id="register-form" novalidate>
+    <div class="field">
+      <label for="name">Nom complet</label>
+      <input id="name" name="name" type="text" autocomplete="name" placeholder="Mamadou Diallo">
+      <small class="error" data-error-for="name"></small>
+    </div>
+    <div class="field">
+      <label for="email">Adresse e-mail</label>
+      <input id="email" name="email" type="email" autocomplete="email" placeholder="vous@exemple.com">
+      <small class="error" data-error-for="email"></small>
+    </div>
+    <div class="field">
+      <label for="password">Mot de passe</label>
+      <input id="password" name="password" type="password" autocomplete="new-password" placeholder="8 caractères minimum">
+      <small class="error" data-error-for="password"></small>
+    </div>
+    <div class="field">
+      <label for="confirm">Confirmer le mot de passe</label>
+      <input id="confirm" name="confirm" type="password" autocomplete="new-password" placeholder="Retapez le mot de passe">
+      <small class="error" data-error-for="confirm"></small>
+    </div>
+    <p class="form-error" role="alert"></p>
+    <button class="btn btn-primary btn-block" type="submit">Créer mon compte</button>
+  </form>
+  <p class="muted center">Vous avez déjà un compte ? <a href="login.html">Se connecter</a></p>
+  <p class="demo-note">Mode démonstration : données enregistrées dans ce navigateur, authentification non sécurisée.</p>
+</main>
+<script src="js/api.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>
